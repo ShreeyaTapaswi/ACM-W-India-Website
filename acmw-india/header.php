@@ -196,7 +196,7 @@ tribe-events-c-top-bar__datepicker-mobile tribe-events-c-top-bar__datepicker-des
         <div class="logo-section">
           <div class="navbar-header show-for-large-up">
             <a class="navbar-brand js-no-link-icon" href="#">
-              <img alt="ACM Logo" height="78" class="logo" title="Home" src="https://acmweurope.acm.org/wp-content/uploads/2022/02/acmw_Europe_logo_v2.gif">
+              <img alt="ACM-W India Logo" height="78" class="logo" title="Home" src="<?php echo $base_path; ?>assets/acmw-india-logo.png">
             </a>
           </div>
           <div class="navbar-header hide-for-large-up">

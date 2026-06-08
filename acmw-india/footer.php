@@ -56,7 +56,7 @@
       <div>
         <div class="logo_social_group">
           <hr>
-                    <img alt="ACM Logo" width="200" height="70" class="img-responsive" src="https://acmweurope.acm.org/wp-content/uploads/2018/05/ACMW_Europe_logo-smaller.png">
+                    <img alt="ACM-W India Logo" width="200" height="70" class="img-responsive" src="<?php echo $base_path; ?>assets/acmw-india-logo.png">
           
           <ul class="footer__social">
           	  <!-- COMMENTED OUT BY KS,  08/12/2016
