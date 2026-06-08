@@ -258,13 +258,15 @@ tribe-events-c-top-bar__datepicker-mobile tribe-events-c-top-bar__datepicker-des
 <li id="menu-item-2279" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2279"><a href="https://acmweurope.acm.org/about/" onclick="return true">About</a></li>
 <li id="menu-item-3656" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3656"><a href="https://acmweurope.acm.org/volunteers/" onclick="return true">Volunteers</a></li>
 <li id="menu-item-3595" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3595"><a href="https://acmweurope.acm.org/chapters-2/" onclick="return true">Chapters</a></li>
-<li id="menu-item-3647" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3647"><a href="https://acmweurope.acm.org/celebrations/" onclick="return false">Celebrations</a>
+<li id="menu-item-india-events" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item menu-item-india-events active" id="nav-events-item"><a href="#" onclick="return indiaShowSection('events', this);">Events</a></li>
+<li id="menu-item-3647" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3647"><a href="#" onclick="return indiaShowSection('celebrations', this);">Celebrations</a>
 <ul class="sub-menu">
-	<li id="menu-item-3646" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3646"><a href="https://acmweurope.acm.org/celebrations/" onclick="return true">Celebrations</a></li>
-	<li id="menu-item-2658" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2658"><a href="https://acmweurope.acm.org/womencourage/" onclick="return true">womENcourage</a></li>
+	<li class="menu-item"><a href="#" onclick="indiaShowSection('celebrations',null);return false;">Celebrations of ACM-W India</a></li>
+	<li class="menu-item"><a href="#" onclick="indiaShowSection('celebrations',null);return false;">Annual Symposium</a></li>
+	<li class="menu-item"><a href="#" onclick="indiaShowSection('celebrations',null);return false;">Awards &amp; Honours</a></li>
 </ul>
 </li>
-<li id="menu-item-2193" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1311 current_page_item menu-item-2193 active"><a href="https://acmweurope.acm.org/newsletter/" onclick="return true">Newsletter</a></li>
+<li id="menu-item-2193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2193"><a href="https://acmweurope.acm.org/newsletter/" onclick="return true">Newsletter</a></li>
 <li id="menu-item-1291" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1291"><a href="https://acmweurope.acm.org/europeblog/" onclick="return true">Blog</a></li>
 </ul></div>            <button class="nav__dropdown-toggle" style="display: none;">MORE</button>
             <div class="more-list-box"></div>
@@ -317,8 +319,613 @@ tribe-events-c-top-bar__datepicker-mobile tribe-events-c-top-bar__datepicker-des
             <div class="columns small-12">
                             <div class="post">
                 <div class="entrytext">
-                  <h1 style="text-align: center;"><strong>ACM-W Europe Newsletters</strong></h1>
-<h3>Issues:</h3>
+<!-- ═══════════ ACM-W India: Events & Celebrations ═══════════ -->
+<style>
+/* Hide the old newsletter post-grid so only India sections show */
+#post-grid-1314,
+#post-grid-lazy-1314,
+.grid-nav-bottom .paginate { display: none !important; }
+
+/* ── Category filter tabs (Events page) ─────────────────────── */
+.india-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 16px 0 24px;
+}
+.india-filter-bar .fbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 15px;
+  border: 2px solid #bbb;
+  border-radius: 3px;
+  background: #fff;
+  color: #444;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.india-filter-bar .fbtn:hover,
+.india-filter-bar .fbtn.active {
+  background: #83cee2;
+  border-color: #83cee2;
+  color: #fff;
+}
+.india-filter-bar .fbtn svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+  flex-shrink: 0;
+}
+.india-filter-bar .fbtn .cnt {
+  display: inline-block;
+  background: rgba(0,0,0,.18);
+  color: inherit;
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 8px;
+  margin-left: 2px;
+}
+.india-filter-bar .fbtn.active .cnt {
+  background: rgba(255,255,255,.28);
+}
+
+/* ── Events card grid ───────────────────────────────────────── */
+.india-ev-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+.india-ev-item {
+  width: 190px;
+  margin: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  transition: box-shadow .2s, transform .2s;
+}
+.india-ev-item:hover {
+  box-shadow: 0 4px 18px rgba(0,0,0,.13);
+  transform: translateY(-3px);
+}
+.india-ev-item a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.india-ev-thumb {
+  width: 100%;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  position: relative;
+  background-size: cover !important;
+  background-position: center !important;
+  overflow: hidden;
+}
+.india-ev-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.38);
+}
+.india-ev-thumb-yr {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0,0,0,.45);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 2px;
+}
+.india-ev-thumb-ico {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  border: 2px solid rgba(255,255,255,.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.india-ev-thumb-ico svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  fill: none;
+}
+.india-ev-thumb-lbl {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+  background: rgba(0,0,0,.22);
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+.india-ev-body {
+  padding: 9px 10px 10px;
+  background: #fff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.india-ev-title {
+  display: block;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.3;
+  padding: 0 0 6px;
+  text-decoration: none;
+}
+.india-ev-title:hover { color: #83cee2; }
+.india-ev-link {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #83cee2;
+  text-decoration: none;
+  margin-top: auto;
+}
+.india-ev-link:hover { color: #52b3d9; }
+.india-ev-hidden { display: none !important; }
+
+/* ── Celebrations grid (mirrors Europe post-grid flat skin) ─── */
+.india-celeb-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+  margin-bottom: 0;
+}
+.india-celeb-item {
+  width: 190px;
+  margin: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  transition: box-shadow .2s, transform .2s;
+}
+.india-celeb-item:hover {
+  box-shadow: 0 4px 18px rgba(0,0,0,.13);
+  transform: translateY(-3px);
+}
+.india-celeb-item a { text-decoration: none; color: inherit; }
+.india-celeb-thumb {
+  width: 100%;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  position: relative;
+}
+.india-celeb-thumb-yr {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0,0,0,.45);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 2px;
+}
+.india-celeb-thumb-ico {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  border: 2px solid rgba(255,255,255,.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.india-celeb-thumb-ico svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  fill: none;
+}
+.india-celeb-thumb-type {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+  background: rgba(0,0,0,.22);
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+.india-celeb-body {
+  padding: 9px 10px 10px;
+  background: #fff;
+}
+.india-celeb-title {
+  display: block;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.3;
+  padding: 0 0 6px;
+  text-decoration: none;
+}
+.india-celeb-title:hover { color: #83cee2; }
+.india-celeb-more {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #83cee2;
+  text-decoration: none;
+}
+.india-celeb-more:hover { color: #52b3d9; }
+.india-celeb-section-hd {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 28px 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #83cee2;
+  color: #333;
+}
+.india-celeb-intro {
+  background: #f5f9fa;
+  border-left: 4px solid #83cee2;
+  padding: 14px 16px;
+  margin-bottom: 22px;
+  border-radius: 0 3px 3px 0;
+  font-size: 13px;
+  color: #444;
+  font-style: italic;
+  line-height: 1.7;
+}
+.india-celeb-intro cite {
+  display: block;
+  font-size: 11px;
+  color: #83cee2;
+  font-weight: 700;
+  margin-top: 7px;
+  font-style: normal;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+/* ── Section visibility toggle ──────────────────────────────── */
+#india-section-events      { display: block; }
+#india-section-celebrations { display: none; }
+
+@media only screen and (max-width: 767px) {
+  .india-ev-item, .india-celeb-item { width: 80%; margin: 10px auto; }
+}
+</style>
+
+<!-- ═══════ SECTION: EVENTS ═══════ -->
+<div id="india-section-events">
+
+  <h1 style="text-align:left;"><strong>ACM-W India Events</strong></h1>
+  <p style="font-size:13px; color:#555; margin-bottom:4px;">Explore flagship events across categories. Click any card to visit the official event page.</p>
+
+  <!-- Filter bar -->
+  <div class="india-filter-bar">
+    <button class="fbtn active" data-cat="all" onclick="indiaFilter('all',this)">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      All Events <span class="cnt" id="cnt-all">14</span>
+    </button>
+    <button class="fbtn" data-cat="Hackathon" onclick="indiaFilter('Hackathon',this)">
+      <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      NariYukti Hackathon <span class="cnt" id="cnt-Hackathon">4</span>
+    </button>
+    <button class="fbtn" data-cat="Coding Contest" onclick="indiaFilter('Coding Contest',this)">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Lady Ada Contest <span class="cnt" id="cnt-CodingContest">5</span>
+    </button>
+    <button class="fbtn" data-cat="Mentorship Program" onclick="indiaFilter('Mentorship Program',this)">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Grad Cohort <span class="cnt" id="cnt-MentorshipProgram">5</span>
+    </button>
+  </div>
+
+  <!-- Events grid (JS rendered) -->
+  <div class="india-ev-grid" id="indiaEvGrid"></div>
+  <p id="indiaNoResults" style="display:none; color:#999; font-size:14px; padding:30px 0;">No events found for this category.</p>
+
+</div><!-- #india-section-events -->
+
+
+<!-- ═══════ SECTION: CELEBRATIONS ═══════ -->
+<div id="india-section-celebrations">
+
+  <h1 style="text-align:center;"><strong>Celebrations of ACM-W India</strong></h1>
+
+  <div class="india-celeb-intro">
+    &ldquo;ACM-W India&rsquo;s annual celebrations are not merely events &mdash; they are living testaments to the strides women in computing have made across India.&rdquo;
+    <cite>&mdash; Dr. Geetanjali Kale, Chair, ACM-W India (2025&ndash;2027)</cite>
+  </div>
+
+  <h3 class="india-celeb-section-hd">Annual Symposium</h3>
+  <p style="font-size:13px; color:#555; margin-bottom:14px;">The ACM-W India Annual Symposium is the flagship gathering, bringing together students, researchers, and industry professionals for keynotes and workshops.</p>
+  <div class="india-celeb-grid" id="celeb-symposium"></div>
+
+  <h3 class="india-celeb-section-hd">Awards &amp; Honours</h3>
+  <p style="font-size:13px; color:#555; margin-bottom:14px;">Each year ACM-W India recognises outstanding women researchers, educators and student achievers through its awards programme.</p>
+  <div class="india-celeb-grid" id="celeb-awards"></div>
+
+  <h3 class="india-celeb-section-hd">Women&rsquo;s Day Events</h3>
+  <p style="font-size:13px; color:#555; margin-bottom:14px;">On International Women&rsquo;s Day, ACM-W India chapters across the country host panel discussions and speaker series.</p>
+  <div class="india-celeb-grid" id="celeb-womenday"></div>
+
+  <h3 class="india-celeb-section-hd">Chapter Milestones</h3>
+  <p style="font-size:13px; color:#555; margin-bottom:14px;">Landmark achievements by ACM-W India student and professional chapters across the country.</p>
+  <div class="india-celeb-grid" id="celeb-milestones"></div>
+
+  <p>&nbsp;</p>
+
+</div><!-- #india-section-celebrations -->
+
+
+<!-- ═══════ DATA + LOGIC ═══════ -->
+<script>
+// ── Events data ───────────────────────────────────────────────────────
+var INDIA_EV = [
+  // NariYukti Hackathon
+  { title:'NariYukti Hackathon 2025', cat:'Hackathon', year:'2025', color:'#7c3aed',
+    img:'nariyukti_hackathon.png',
+    desc:"India's premier all-women national hackathon — AI, sustainability &amp; social impact tracks.",
+    link:'https://india.acm.org/acm-w-india' },
+  { title:'NariYukti Hackathon 2024', cat:'Hackathon', year:'2024', color:'#7c3aed',
+    img:'nariyukti_hackathon.png',
+    desc:'Second edition — 800+ participants from 120+ colleges across India.',
+    link:'https://india.acm.org/acm-w-india' },
+  { title:'NariYukti Hackathon 2023', cat:'Hackathon', year:'2023', color:'#7c3aed',
+    img:'nariyukti_hackathon.png',
+    desc:'Inaugural NariYukti Hackathon, showcasing women\'s technical innovation.',
+    link:'https://india.acm.org/acm-w-india' },
+  { title:'NariYukti Hackathon 2022', cat:'Hackathon', year:'2022', color:'#7c3aed',
+    img:'nariyukti_hackathon.png',
+    desc:'Precursor series that laid the groundwork for the NariYukti brand.',
+    link:'https://india.acm.org/acm-w-india' },
+  // Lady Ada Coding Contest
+  { title:'Lady Ada Contest 2025', cat:'Coding Contest', year:'2025', color:'#0369a1',
+    img:'lady_ada_contest.png',
+    desc:'Named in honour of Ada Lovelace — a national competitive programming platform for women.',
+    link:'https://india.acm.org/acm-w-india' },
+  { title:'Lady Ada Contest 2024', cat:'Coding Contest', year:'2024', color:'#0369a1',
+    img:'lady_ada_contest.png',
+    desc:'2,000+ registrations — problems spanning graphs, DP and data structures.',
+    link:'https://india.acm.org/acm-w-india' },
+  { title:'Lady Ada Contest 2023', cat:'Coding Contest', year:'2023', color:'#0369a1',
+    img:'lady_ada_contest.png',
+    desc:'10th anniversary edition with multi-round elimination and record participation.',
+    link:'https://india.acm.org/acm-w-india' },
+  { title:'Lady Ada Contest 2022', cat:'Coding Contest', year:'2022', color:'#0369a1',
+    img:'lady_ada_contest.png',
+    desc:'Fully virtual — expanded access to participants from Tier-2/3 cities.',
+    link:'https://india.acm.org/acm-w-india' },
+  { title:'Lady Ada Contest 2021', cat:'Coding Contest', year:'2021', color:'#0369a1',
+    img:'lady_ada_contest.png',
+    desc:'Mentorship workshops alongside the contest; finalists paired with industry professionals.',
+    link:'https://india.acm.org/acm-w-india' },
+  // Grad Cohort
+  { title:'Grad Cohort India 2025', cat:'Mentorship Program', year:'2025', color:'#065f46',
+    img:'grad_cohort_mentorship.png',
+    desc:'Two-day immersive mentorship — women grad researchers meet ACM Fellows and industry leaders.',
+    link:'https://india.acm.org/acm-w-india' },
+  { title:'Grad Cohort India 2024', cat:'Mentorship Program', year:'2024', color:'#065f46',
+    img:'grad_cohort_mentorship.png',
+    desc:'1-on-1 mentorship, CV workshops and networking with 50+ senior mentors.',
+    link:'https://india.acm.org/acm-w-india' },
+  { title:'Grad Cohort India 2023', cat:'Mentorship Program', year:'2023', color:'#065f46',
+    img:'grad_cohort_mentorship.png',
+    desc:'120 women PhD scholars — tracks on AI research, systems, and HCI.',
+    link:'https://india.acm.org/acm-w-india' },
+  { title:'Grad Cohort India 2022', cat:'Mentorship Program', year:'2022', color:'#065f46',
+    img:'grad_cohort_mentorship.png',
+    desc:'80+ women researchers, 30+ mentors — structured career development sessions.',
+    link:'https://india.acm.org/acm-w-india' },
+  { title:'Grad Cohort India 2021', cat:'Mentorship Program', year:'2021', color:'#065f46',
+    img:'grad_cohort_mentorship.png',
+    img:'https://india.acm.org/wp-content/uploads/grad_cohort_2021.jpg',
+    desc:'Inaugural India-specific Grad Cohort for women in graduate computing programmes.',
+    link:'https://india.acm.org/acm-w-india' }
+];
+
+var EV_ICONS = {
+  'Hackathon':         '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+  'Coding Contest':    '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>',
+  'Mentorship Program':'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>'
+};
+var EV_LABELS = {
+  'Hackathon':'NariYukti Hackathon',
+  'Coding Contest':'Lady Ada Contest',
+  'Mentorship Program':'Grad Cohort'
+};
+
+function buildEvCard(ev) {
+  var icon = EV_ICONS[ev.cat] || '';
+  var lbl  = EV_LABELS[ev.cat] || ev.cat;
+  var thumbStyle = ev.img
+    ? 'background:url("' + ev.img + '") center/cover no-repeat;'
+    : 'background:linear-gradient(135deg,' + ev.color + ' 0%,' + ev.color + 'bb 100%);';
+  return '<div class="india-ev-item" data-cat="' + ev.cat + '">'
+    + '<a href="' + ev.link + '" target="_blank">'
+    + '<div class="india-ev-thumb" style="' + thumbStyle + '">'
+    + '<div class="india-ev-thumb-overlay" style="background:rgba(0,0,0,0.3);width:100%;height:100%;position:absolute;top:0;left:0;"></div>'
+    + '<span class="india-ev-thumb-yr">' + ev.year + '</span>'
+    + '<div class="india-ev-thumb-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + icon + '</svg></div>'
+    + '<span class="india-ev-thumb-lbl">' + lbl + '</span>'
+    + '</div>'
+    + '<div class="india-ev-body">'
+    + '<span class="india-ev-title">' + ev.title + '</span>'
+    + '<span class="india-ev-link">Read more.</span>'
+    + '</div>'
+    + '</a>'
+    + '</div>';
+}
+
+function indiaFilter(cat, btn) {
+  var btns = document.querySelectorAll('.india-filter-bar .fbtn');
+  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+  if (btn) btn.classList.add('active');
+  var cards = document.querySelectorAll('#indiaEvGrid .india-ev-item');
+  var shown = 0;
+  for (var j = 0; j < cards.length; j++) {
+    if (cat === 'all' || cards[j].getAttribute('data-cat') === cat) {
+      cards[j].classList.remove('india-ev-hidden'); shown++;
+    } else {
+      cards[j].classList.add('india-ev-hidden');
+    }
+  }
+  var nr = document.getElementById('indiaNoResults');
+  if (nr) nr.style.display = shown === 0 ? 'block' : 'none';
+}
+
+// ── Celebrations data ─────────────────────────────────────────────────
+var INDIA_CELEB = {
+  symposium: [
+    { title:'Annual Symposium 2025', year:'2025', color:'#b91c1c', type:'Symposium',
+      desc:'15th edition — 600+ attendees, 3 keynotes, 12 workshops at IIT Bombay.',
+      link:'https://india.acm.org/acm-w-india' },
+    { title:'Annual Symposium 2024', year:'2024', color:'#b91c1c', type:'Symposium',
+      desc:'AI &amp; Society track introduced. 500+ participants at IIIT Hyderabad.',
+      link:'https://india.acm.org/acm-w-india' },
+    { title:'Annual Symposium 2023', year:'2023', color:'#b91c1c', type:'Symposium',
+      desc:'10-year milestone edition with retrospective panel at PICT, Pune.',
+      link:'https://india.acm.org/acm-w-india' },
+    { title:'Annual Symposium 2022', year:'2022', color:'#b91c1c', type:'Symposium',
+      desc:'First hybrid symposium — 400 in-person + 1,200 virtual attendees.',
+      link:'https://india.acm.org/acm-w-india' },
+    { title:'Annual Symposium 2021', year:'2021', color:'#b91c1c', type:'Symposium',
+      desc:'Fully virtual — record 1,800 registered attendees.',
+      link:'https://india.acm.org/acm-w-india' }
+  ],
+  awards: [
+    { title:'Outstanding Woman in Computing 2025', year:'2025', color:'#b45309', type:'Award',
+      desc:'Senior academic/industry leader recognised for exceptional contributions.',
+      link:'https://india.acm.org/acm-w-india' },
+    { title:'Rising Star Award 2025', year:'2025', color:'#b45309', type:'Award',
+      desc:'Early-career woman researcher within 5 years of PhD — outstanding research impact.',
+      link:'https://india.acm.org/acm-w-india' },
+    { title:'Best Student Chapter 2025', year:'2025', color:'#b45309', type:'Award',
+      desc:'Chapter with highest impact in promoting women in computing.',
+      link:'https://india.acm.org/acm-w-india' },
+    { title:'Lifetime Achievement 2024', year:'2024', color:'#b45309', type:'Award',
+      desc:'Honouring decades of leadership in advancing women in computing in India.',
+      link:'https://india.acm.org/acm-w-india' }
+  ],
+  womenday: [
+    { title:"Women's Day Speaker Series 2025", year:'Mar 2025', color:'#0f766e', type:"Women's Day",
+      desc:'Simultaneous speaker events across 80+ ACM chapters on 8 March 2025.',
+      link:'https://india.acm.org/acm-w-india' },
+    { title:'#SheCodes Campaign 2025', year:'Mar 2025', color:'#0f766e', type:"Women's Day",
+      desc:'Nationwide spotlight on 30 women coders across 30 days of March.',
+      link:'https://india.acm.org/acm-w-india' },
+    { title:"Women's Day Speaker Series 2024", year:'Mar 2024', color:'#0f766e', type:"Women's Day",
+      desc:'65 chapters hosted simultaneous panel discussions on career growth.',
+      link:'https://india.acm.org/acm-w-india' }
+  ],
+  milestones: [
+    { title:'130 Chapters Milestone', year:'2025', color:'#1d4ed8', type:'Milestone',
+      desc:'Crossed 130 active chapters — one of ACM\'s largest women-in-computing networks.',
+      link:'https://india.acm.org/acm-w-india' },
+    { title:'ACM Global Outstanding Website Award', year:'2024', color:'#1d4ed8', type:'Milestone',
+      desc:'PICT ACM Student Chapter received this prestigious global ACM award.',
+      link:'https://india.acm.org/acm-w-india' },
+    { title:'5,000 Members Milestone', year:'2023', color:'#1d4ed8', type:'Milestone',
+      desc:'Surpassed 5,000 members across 28 states — a decade of sustained growth.',
+      link:'https://india.acm.org/acm-w-india' }
+  ]
+};
+
+var CELEB_ICONS = {
+  'Symposium':  '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  'Award':      '<circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>',
+  "Women's Day":'<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+  'Milestone':  '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>'
+};
+
+function buildCelebCard(ev) {
+  var icon = CELEB_ICONS[ev.type] || CELEB_ICONS['Milestone'];
+  return '<div class="india-celeb-item">'
+    + '<a href="' + ev.link + '" target="_blank" class="js-no-link-icon">'
+    + '<div class="india-celeb-thumb" style="background:linear-gradient(135deg,' + ev.color + ' 0%,' + ev.color + 'bb 100%);">'
+    + '<span class="india-celeb-thumb-yr">' + ev.year + '</span>'
+    + '<div class="india-celeb-thumb-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + icon + '</svg></div>'
+    + '<span class="india-celeb-thumb-type">' + ev.type + '</span>'
+    + '</div>'
+    + '<div class="india-celeb-body">'
+    + '<span class="india-celeb-title">' + ev.title + '</span>'
+    + '<span class="india-celeb-more">Read more.</span>'
+    + '</div>'
+    + '</a>'
+    + '</div>';
+}
+
+// ── Section switcher (called from nav onclick) ─────────────────────────
+function indiaShowSection(sec, navEl) {
+  document.getElementById('india-section-events').style.display       = (sec === 'events')       ? 'block' : 'none';
+  document.getElementById('india-section-celebrations').style.display = (sec === 'celebrations') ? 'block' : 'none';
+  // Update nav active state
+  var items = document.querySelectorAll('#primary-menu .menu-item');
+  for (var i = 0; i < items.length; i++) items[i].classList.remove('active', 'current-menu-item', 'current_page_item');
+  if (navEl) {
+    var li = navEl.closest ? navEl.closest('li') : navEl.parentNode;
+    if (li) li.classList.add('active', 'current-menu-item');
+  }
+  return false;
+}
+
+// ── Initialise on DOM ready ────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function () {
+  // Render events grid
+  var eg = document.getElementById('indiaEvGrid');
+  if (eg) {
+    var html = '';
+    for (var i = 0; i < INDIA_EV.length; i++) html += buildEvCard(INDIA_EV[i]);
+    eg.innerHTML = html;
+    // Update badges
+    document.getElementById('cnt-all').textContent = INDIA_EV.length;
+    ['Hackathon','Coding Contest','Mentorship Program'].forEach(function(c) {
+      var id = c.replace(/ /g,'');
+      var el = document.getElementById('cnt-' + id);
+      if (el) el.textContent = INDIA_EV.filter(function(e){ return e.cat === c; }).length;
+    });
+  }
+  // Render celebrations grids
+  var sections = [
+    { key:'symposium',  id:'celeb-symposium' },
+    { key:'awards',     id:'celeb-awards' },
+    { key:'womenday',   id:'celeb-womenday' },
+    { key:'milestones', id:'celeb-milestones' }
+  ];
+  sections.forEach(function(s) {
+    var el = document.getElementById(s.id);
+    if (!el) return;
+    var html = '';
+    (INDIA_CELEB[s.key] || []).forEach(function(ev) { html += buildCelebCard(ev); });
+    el.innerHTML = html;
+  });
+});
+</script>
     <style type="text/css">
     			#post-grid-1314 .element_0{display: block;font-size: 18px;line-height: normal;padding: 5px 10px;text-align: left; text-decoration: none;}
 						#post-grid-1314 .element_1{display: block;font-size: 12px;font-weight: bold;padding: 0 10px;text-align: left;text-decoration: none;}
