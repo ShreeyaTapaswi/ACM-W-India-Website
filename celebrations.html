@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en-US" class="js flexbox canvas webgl no-touch geolocation postmessage hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers svg inlinesvg smil svgclippaths wf-robotocondensed-n4-active wf-roboto-n4-active wf-active">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Celebrations | ACM-W India</title>
+  <meta name="description" content="Celebrations of ACM-W India — annual symposia, award ceremonies, and events honouring women in computing across India.">
+  <link rel="shortcut icon" href="https://acmweurope.acm.org/favicon.ico?v=2">
+
+  <!-- ACM-W Europe stylesheets (preserved exactly) -->
+  <link rel="stylesheet" type="text/css" media="all" href="https://acmweurope.acm.org/wp-content/themes/acm/style.css">
+  <link rel="stylesheet" id="acm-fonts-css" href="https://fonts.googleapis.com/css?family=Noto+Sans%3A400italic%2C700italic%2C400%2C700%7CNoto+Serif%3A400italic%2C700italic%2C400%2C700%7CInconsolata%3A400%2C700&subset=latin%2Clatin-ext" type="text/css" media="all">
+  <link rel="stylesheet" id="acm-style-css" href="https://acmweurope.acm.org/wp-content/themes/acm/style.css?ver=4.9.26" type="text/css" media="all">
+  <link rel="stylesheet" id="font-awesome-css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css?ver=4.9.26" type="text/css" media="all">
+  <!-- Post-grid plugin styles — same ones used on Europe's Events page -->
+  <link rel="stylesheet" id="post-grid-style-css" href="https://acmweurope.acm.org/wp-content/plugins/post-grid/assets/frontend/css/style.css?ver=4.9.26" type="text/css" media="all">
+  <link rel="stylesheet" id="post-grid-skin-css" href="https://acmweurope.acm.org/wp-content/plugins/post-grid/assets/global/css/style.skins.css?ver=4.9.26" type="text/css" media="all">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700,300italic,400italic,700italic%7CRoboto:400,500&subset=latin,latin" media="all">
+
+  <script type="text/javascript" src="https://acmweurope.acm.org/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
+
+  <!-- ── Celebrations page scoped styles ─────────────────────────────── -->
+  <style>
+    /* ── Exactly replicating the Europe post-grid .flat skin ────────── */
+    #post-grid-celebrations {
+      padding: 10px;
+    }
+    #post-grid-celebrations .grid-items-wrap {
+      display: block;
+    }
+    #post-grid-celebrations .grid-items {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -10px;
+    }
+    /* Card — mirrors Europe's flat skin item */
+    #post-grid-celebrations .item {
+      margin: 10px;
+      padding: 0;
+      width: 190px;
+      background: #fff;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      transition: box-shadow .25s, transform .2s;
+    }
+    #post-grid-celebrations .item:hover {
+      box-shadow: 0 4px 18px rgba(0,0,0,.14);
+      transform: translateY(-3px);
+    }
+    #post-grid-celebrations .layer-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    /* Banner area — coloured gradient + icon (replaces post thumbnail) */
+    #post-grid-celebrations .layer-media {
+      height: auto;
+      overflow: hidden;
+      position: relative;
+    }
+    #post-grid-celebrations .layer-media a {
+      display: block;
+      width: 100%;
+    }
+    #post-grid-celebrations .layer-media img {
+      width: 100%;
+      display: block;
+    }
+    /* Coloured gradient tile used when no image is set */
+    .celeb-thumb {
+      width: 100%;
+      height: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
+    }
+    .celeb-thumb-year {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(0,0,0,.45);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+    .celeb-thumb-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.18);
+      border: 2px solid rgba(255,255,255,.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .celeb-thumb-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: #fff;
+      fill: none;
+    }
+    .celeb-thumb-type {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.85);
+      background: rgba(0,0,0,.25);
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+
+    /* Content layer — replicating Europe's element_0/element_1 */
+    #post-grid-celebrations .layer-content {
+      padding: 10px;
+      background: #fff;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    #post-grid-celebrations .element_0 {
+      display: block;
+      font-size: 13px;
+      line-height: normal;
+      padding: 4px 0 6px;
+      text-align: left;
+      text-decoration: none;
+      color: #222;
+      font-weight: 700;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    #post-grid-celebrations .element_0:hover { color: #83cee2; }
+    #post-grid-celebrations .element_1 {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 0;
+      text-align: left;
+      text-decoration: none;
+      color: #83cee2;
+      margin-top: auto;
+    }
+    #post-grid-celebrations .element_1:hover { color: #52b3d9; }
+
+    /* ── Pagination — identical to Europe post-grid ─────────────────── */
+    .celeb-pagination {
+      padding: 16px 0 8px;
+    }
+    .celeb-pagination .paginate {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .celeb-pagination .page-numbers {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 32px;
+      height: 32px;
+      padding: 0 8px;
+      font-size: 14px;
+      color: #fff;
+      background: #646464;
+      text-decoration: none;
+      border-radius: 2px;
+      cursor: pointer;
+      border: none;
+      transition: background .2s;
+    }
+    .celeb-pagination .page-numbers:hover,
+    .celeb-pagination .page-numbers.current {
+      background: #4b4b4b;
+    }
+
+    /* ── Sub-nav tabs (mirrors Europe Celebrations sub-menu) ────────── */
+    .celeb-subnav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 12px;
+    }
+    .celeb-subnav a {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 2px solid #bbb;
+      border-radius: 3px;
+      color: #555;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, color .2s;
+    }
+    .celeb-subnav a:hover,
+    .celeb-subnav a.active {
+      background: #83cee2;
+      border-color: #83cee2;
+      color: #fff;
+    }
+
+    /* ── Intro quote banner (mirrors Europe's womENcourage highlight) ── */
+    .celeb-quote {
+      background: #f5f9fa;
+      border-left: 4px solid #83cee2;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+      border-radius: 0 4px 4px 0;
+    }
+    .celeb-quote p {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.75;
+      margin: 0;
+      font-style: italic;
+    }
+    .celeb-quote cite {
+      display: block;
+      font-size: 12px;
+      color: #83cee2;
+      font-weight: 700;
+      margin-top: 8px;
+      font-style: normal;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    /* ── Responsive: stack cards on small screens ───────────────────── */
+    @media only screen and (max-width: 767px) {
+      #post-grid-celebrations .item { width: 80%; margin: 10px auto; }
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+      #post-grid-celebrations .item { width: 150px; }
+    }
+  </style>
+</head>
+
+<body class="posttype_page not_home">
+
+<!-- ═══════════════════════  HEADER  (Europe template, India text)  ═══ -->
+<div id="header" class="row">
+  <nav class="top-bar eyebrow show-for-medium-up" data-topbar data-options="is_hover: false">
+    <section class="top-bar-section">
+      <div id="skiptocontent"><a href="#SkipTarget">skip to main content</a></div>
+    </section>
+  </nav>
+
+  <div class="clearfix utilities-area">
+    <div class="logo-section">
+      <div class="navbar-header show-for-large-up">
+        <a class="navbar-brand js-no-link-icon" href="index.html">
+          <img alt="ACM-W India Logo" height="78" class="logo" title="Home"
+               src="https://acmweurope.acm.org/wp-content/uploads/2022/02/acmw_Europe_logo_v2.gif">
+        </a>
+      </div>
+      <div class="navbar-header hide-for-large-up">
+        <a href="index.html" class="js-no-link-icon">
+          <img alt="ACM Logo" class="img-responsive hide-for-large-up" title="Home"
+               src="http://www.acm.org/images/top-menu/acm_logo_mobile.svg">
+        </a>
+      </div>
+    </div>
+    <div id="acm-description" class="column large-5 show-for-large-up">
+      <div>ACM-W India &mdash; supporting, celebrating, and advocating for Women in Computing</div>
+    </div>
+    <div id="ctas-and-search" class="column large-5 medium-6 no-pad-left ctas-and-search">
+      <div class="menu-secondarymenu-container">
+        <ul id="menu-secondarymenu" class="block-grid right">
+          <li class="menu-item"><a href="https://www.linkedin.com/company/acm-w-acms-women-in-computing/" target="_blank"><span class="screen-reader-text">LinkedIn</span></a></li>
+          <li class="menu-item"><a href="https://twitter.com/officialacmw" target="_blank"><span class="screen-reader-text">Twitter</span></a></li>
+          <li class="menu-item"><a href="https://www.instagram.com/acmwomen/" target="_blank"><span class="screen-reader-text">Instagram</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Primary navigation ─────────────────────────────────────────── -->
+  <nav class="top-bar main-nav" data-topbar data-options="is_hover: false">
+    <ul class="title-area">
+      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+    </ul>
+    <section class="top-bar-section">
+      <div class="menu-primarymenu-container">
+        <ul id="primary-menu" class="nav-menu">
+          <li class="menu-item"><a href="index.html">Home</a></li>
+          <li class="menu-item"><a href="about.html">About</a></li>
+          <li class="menu-item"><a href="events.html">Events</a></li>
+          <li class="menu-item current-menu-item menu-item-has-children active"><a href="celebrations.html" onclick="return false;">Celebrations</a>
+            <ul class="sub-menu">
+              <li class="menu-item"><a href="celebrations.html">Celebrations</a></li>
+              <li class="menu-item"><a href="celebrations.html#symposium">Annual Symposium</a></li>
+              <li class="menu-item"><a href="celebrations.html#awards">Awards &amp; Honours</a></li>
+            </ul>
+          </li>
+          <li class="menu-item"><a href="team.html">Team</a></li>
+          <li class="menu-item"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <button class="nav__dropdown-toggle" style="display:none;">MORE</button>
+      <div class="more-list-box"></div>
+    </section>
+  </nav>
+</div><!-- #header -->
+
+<div id="main">
+
+  <!-- ── Banner ─────────────────────────────────────────────────────── -->
+  <div class="banner-container">
+    <div><div>
+      <div class="acm-banner-container" style="background: url('https://acmweurope.acm.org/wp-content/uploads/2020/11/bannerMap-3-1024x195.png') no-repeat center 0 / 130% #000; background-size: cover;">
+        <div class="gradient-wrapper"></div>
+        <div class="overlay"></div>
+        <div class="row">
+          <div class="columns large-12 medium-12 banner-content">
+            <p class="banner-heading">
+              <small>ACM-W India</small>
+              Celebrations
+            </p>
+            <p>Honoring milestones, achievements and the women who make computing a better field for everyone</p>
+          </div>
+        </div>
+      </div>
+    </div></div>
+
+    <div class="row" style="background-color: white; padding-top: 10px;">
+      <div class="columns small-12">
+        <ul class="breadcrumbs">
+          <ul id="crumbs" class="breadcrumbs">
+            <li><a href="index.html">Home</a></li>
+            <li>Celebrations</li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── Main content ───────────────────────────────────────────────── -->
+    <div class="article" id="maincontent">
+      <article id="SkipTarget" tabindex="-1">
+        <div class="row">
+          <div class="columns large-9 medium-9 small-12 zone-1">
+            <div class="row">
+              <div class="columns small-12">
+                <div class="post">
+                  <div class="entrytext">
+
+                    <h1 style="text-align:center;"><strong>Celebrations of ACM-W India</strong></h1>
+
+                    <!-- ── Intro quote (Europe-style highlight block) ──── -->
+                    <div class="celeb-quote">
+                      <p>"ACM-W India's annual celebrations are not merely events — they are living testaments to the strides women in computing have made across India. We celebrate not just achievement, but the courage it takes to lead in a field that still needs more women."</p>
+                      <cite>— Dr. Geetanjali Kale, Chair, ACM-W India (2025–2027)</cite>
+                    </div>
+
+                    <!-- ── Sub-navigation (mirrors Europe's Celebrations sub-menu) ── -->
+                    <div class="celeb-subnav">
+                      <a href="#symposium" class="active">Annual Symposium</a>
+                      <a href="#awards">Awards &amp; Honours</a>
+                      <a href="#womenday">Women's Day Events</a>
+                      <a href="#achievements">Chapter Milestones</a>
+                    </div>
+
+                    <!-- ════════════════════════════════════════════════
+                         CELEBRATIONS GRID
+                         Exact same markup as ACM-W Europe's Events page
+                         post-grid (flat skin): .post-grid .grid .flat
+                         ════════════════════════════════════════════════ -->
+
+                    <!-- ── Annual Symposium ──────────────────────────── -->
+                    <h3 id="symposium" style="margin-bottom:16px; margin-top:32px; border-bottom:2px solid #83cee2; padding-bottom:8px;">Annual Symposium</h3>
+                    <p style="font-size:14px; color:#555; margin-bottom:20px;">
+                      The ACM-W India Annual Symposium is the flagship gathering of the women-in-computing community in India, bringing together students, researchers, and industry professionals for keynotes, workshops, and networking.
+                    </p>
+
+                    <div id="post-grid-celebrations" class="post-grid grid" style="display:block;">
+                      <div class="grid-nav-top"></div>
+                      <div class="grid-items-wrap">
+                        <div class="grid-items" id="symposium-grid">
+                          <!-- cards injected by JS -->
+                        </div>
+                      </div>
+                      <div class="grid-nav-bottom">
+                        <div class="celeb-pagination">
+                          <div class="paginate">
+                            <span aria-current="page" class="page-numbers current">1</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- ── Awards & Honours ──────────────────────────── -->
+                    <h3 id="awards" style="margin-bottom:16px; margin-top:44px; border-bottom:2px solid #83cee2; padding-bottom:8px;">Awards &amp; Honours</h3>
+                    <p style="font-size:14px; color:#555; margin-bottom:20px;">
+                      Each year ACM-W India recognises outstanding women researchers, educators and student achievers through its awards programme.
+                    </p>
+
+                    <div id="post-grid-awards" class="post-grid grid" style="display:block;">
+                      <div class="grid-items-wrap">
+                        <div class="grid-items" id="awards-grid">
+                          <!-- cards injected by JS -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- ── Women's Day Events ─────────────────────────── -->
+                    <h3 id="womenday" style="margin-bottom:16px; margin-top:44px; border-bottom:2px solid #83cee2; padding-bottom:8px;">Women's Day Events</h3>
+                    <p style="font-size:14px; color:#555; margin-bottom:20px;">
+                      On International Women's Day each March, ACM-W India chapters across the country host panel discussions, speaker series and outreach events to celebrate and inspire women in computing.
+                    </p>
+
+                    <div id="post-grid-womenday" class="post-grid grid" style="display:block;">
+                      <div class="grid-items-wrap">
+                        <div class="grid-items" id="womenday-grid">
+                          <!-- cards injected by JS -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- ── Chapter Milestones ─────────────────────────── -->
+                    <h3 id="achievements" style="margin-bottom:16px; margin-top:44px; border-bottom:2px solid #83cee2; padding-bottom:8px;">Chapter Milestones</h3>
+                    <p style="font-size:14px; color:#555; margin-bottom:20px;">
+                      Highlights of landmark achievements by ACM-W India student and professional chapters across the country.
+                    </p>
+
+                    <div id="post-grid-milestones" class="post-grid grid" style="display:block;">
+                      <div class="grid-items-wrap">
+                        <div class="grid-items" id="milestones-grid">
+                          <!-- cards injected by JS -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+
+                  </div><!-- .entrytext -->
+                </div><!-- .post -->
+              </div>
+            </div>
+          </div><!-- .zone-1 -->
+
+          <!-- ── Sidebar ──────────────────────────────────────────────── -->
+          <aside id="secondary" class="columns large-3 medium-3 small-12" role="complementary">
+            <div>
+              <div class="textwidget">
+                <h3>About Celebrations</h3>
+                <p style="font-size:13px; color:#555; line-height:1.7;">
+                  ACM-W India's celebrations highlight the achievements of women in computing, mark organisational milestones and foster community pride across all 28 states.
+                </p>
+                <hr>
+                <h4 style="margin-top:16px;">On This Page</h4>
+                <ul style="font-size:13px; color:#555; padding-left:18px; line-height:2.2;">
+                  <li><a href="#symposium">Annual Symposium</a></li>
+                  <li><a href="#awards">Awards &amp; Honours</a></li>
+                  <li><a href="#womenday">Women's Day Events</a></li>
+                  <li><a href="#achievements">Chapter Milestones</a></li>
+                </ul>
+                <hr>
+                <h4 style="margin-top:16px;">Related Pages</h4>
+                <ul style="font-size:13px; color:#555; padding-left:18px; line-height:2.2;">
+                  <li><a href="events.html">All Events</a></li>
+                  <li><a href="events.html?cat=Hackathon">NariYukti Hackathon</a></li>
+                  <li><a href="events.html?cat=Coding Contest">Lady Ada Contest</a></li>
+                  <li><a href="events.html?cat=Mentorship Program">Grad Cohort</a></li>
+                </ul>
+                <hr>
+                <h4 style="margin-top:16px;">Milestones at a Glance</h4>
+                <ul style="font-size:13px; color:#555; padding-left:18px; line-height:2.2;">
+                  <li>Founded: <strong>2008</strong></li>
+                  <li>Chapters: <strong>130+</strong></li>
+                  <li>Members: <strong>5,000+</strong></li>
+                  <li>States covered: <strong>28</strong></li>
+                  <li>Annual events: <strong>200+</strong></li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+
+        </div><!-- .row -->
+      </article>
+    </div><!-- .article -->
+  </div><!-- .banner-container -->
+</div><!-- #main -->
+
+<!-- ═══════════════════════  FOOTER  (Europe template)  ════════════════ -->
+<div class="row">
+  <footer>
+    <nav>
+      <div class="footer-nav">
+        <div>
+          <h2>footermenu</h2>
+          <div class="menu-footermenu-container">
+            <ul id="menu-footermenu" class="menu">
+              <li class="menu-item"><a href="about.html">About ACM-W India</a></li>
+              <li class="menu-item"><a href="events.html">Events</a></li>
+              <li class="menu-item current-menu-item"><a href="celebrations.html">Celebrations</a></li>
+              <li class="menu-item"><a href="team.html">Team</a></li>
+              <li class="menu-item"><a href="contact.html">Contact</a></li>
+              <li class="menu-item"><a href="https://india.acm.org/" target="_blank">ACM India</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div>
+      <div>
+        <div class="logo_social_group">
+          <hr>
+          <img alt="ACM-W India" width="200" height="70" class="img-responsive"
+               src="https://acmweurope.acm.org/wp-content/uploads/2018/05/ACMW_Europe_logo-smaller.png">
+          <p style="font-size:12px; color:#666; margin-top:10px;">
+            &copy; 2025 ACM-W India &middot; A chapter of the Association for Computing Machinery
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════  CELEBRATIONS DATA + RENDER  ══════════════ -->
+<script>
+// ── Celebration event data ────────────────────────────────────────────
+var CELEB = {
+
+  symposium: [
+    {
+      title: "ACM-W India Annual Symposium 2025",
+      year: "2025",
+      location: "IIT Bombay, Mumbai",
+      desc: "15th annual gathering. 600+ attendees, 3 keynotes, 12 workshops.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#b91c1c",   // crimson
+      type: "Symposium"
+    },
+    {
+      title: "ACM-W India Annual Symposium 2024",
+      year: "2024",
+      location: "IIIT Hyderabad",
+      desc: "AI & Society track introduced. Best paper award, 500+ participants.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#b91c1c",
+      type: "Symposium"
+    },
+    {
+      title: "ACM-W India Annual Symposium 2023",
+      year: "2023",
+      location: "PICT, Pune",
+      desc: "10-year milestone edition with special retrospective and alumni panel.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#b91c1c",
+      type: "Symposium"
+    },
+    {
+      title: "ACM-W India Annual Symposium 2022",
+      year: "2022",
+      location: "IIT Madras, Chennai",
+      desc: "First hybrid symposium. 400 in-person + 1,200 virtual attendees.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#b91c1c",
+      type: "Symposium"
+    },
+    {
+      title: "ACM-W India Annual Symposium 2021",
+      year: "2021",
+      location: "Online",
+      desc: "Fully virtual due to pandemic. Record 1,800 registered attendees.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#b91c1c",
+      type: "Symposium"
+    },
+    {
+      title: "ACM-W India Annual Symposium 2020",
+      year: "2020",
+      location: "Online",
+      desc: "Pivoted to online format mid-planning, successfully reaching 1,500+.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#b91c1c",
+      type: "Symposium"
+    }
+  ],
+
+  awards: [
+    {
+      title: "Outstanding Woman in Computing 2025",
+      year: "2025",
+      location: "Annual Symposium, IIT Bombay",
+      desc: "Awarded to a senior academic or industry leader for exceptional contributions to computing research and mentorship of women.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#b45309",   // amber
+      type: "Award"
+    },
+    {
+      title: "Rising Star Award 2025",
+      year: "2025",
+      location: "Annual Symposium, IIT Bombay",
+      desc: "Recognising an early-career woman researcher (within 5 years of PhD) for outstanding research impact.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#b45309",
+      type: "Award"
+    },
+    {
+      title: "Best Student Chapter Award 2025",
+      year: "2025",
+      location: "Annual Symposium, IIT Bombay",
+      desc: "Awarded to the ACM student chapter that demonstrated the highest impact in promoting women in computing.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#b45309",
+      type: "Award"
+    },
+    {
+      title: "Lifetime Achievement Award 2024",
+      year: "2024",
+      location: "Annual Symposium, IIIT Hyderabad",
+      desc: "Honoring decades of service and leadership in advancing women in computing in India.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#b45309",
+      type: "Award"
+    },
+    {
+      title: "Outstanding Woman in Computing 2024",
+      year: "2024",
+      location: "Annual Symposium, IIIT Hyderabad",
+      desc: "Annual recognition for exceptional contributions to computing research and to the ACM-W India community.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#b45309",
+      type: "Award"
+    }
+  ],
+
+  womenday: [
+    {
+      title: "Women's Day Speaker Series 2025",
+      year: "Mar 2025",
+      location: "Pan India — 80+ Chapters",
+      desc: "Simultaneous speaker events across 80+ ACM student chapters on 8 March 2025.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#0f766e",   // teal
+      type: "Women's Day"
+    },
+    {
+      title: "#SheCodes Campaign 2025",
+      year: "Mar 2025",
+      location: "Online / Social Media",
+      desc: "Nationwide social media campaign spotlighting 30 women coders across 30 days of March.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#0f766e",
+      type: "Women's Day"
+    },
+    {
+      title: "Women's Day Speaker Series 2024",
+      year: "Mar 2024",
+      location: "Pan India — 65+ Chapters",
+      desc: "65 chapters hosted simultaneous panel discussions on career growth for women in tech.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#0f766e",
+      type: "Women's Day"
+    },
+    {
+      title: "She Leads Tech Summit 2024",
+      year: "Mar 2024",
+      location: "IIT Delhi, New Delhi",
+      desc: "One-day summit with 200+ students and 15 senior industry and academia leaders.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#0f766e",
+      type: "Women's Day"
+    }
+  ],
+
+  milestones: [
+    {
+      title: "ACM-W India — 130 Chapters Milestone",
+      year: "2025",
+      location: "Pan India",
+      desc: "ACM-W India crossed 130 active student and professional chapters, making it one of ACM's largest regional women-in-computing networks.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#1d4ed8",   // blue
+      type: "Milestone"
+    },
+    {
+      title: "ACM Global Outstanding Website Award",
+      year: "2024",
+      location: "PICT, Pune Chapter",
+      desc: "PICT ACM Student Chapter received the prestigious ACM Global Outstanding Website Award under Dr. Geetanjali Kale's leadership.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#1d4ed8",
+      type: "Milestone"
+    },
+    {
+      title: "ACM India Outstanding Chapter Award",
+      year: "2024",
+      location: "Multiple Chapters",
+      desc: "Three ACM-W India student chapters received the ACM India Outstanding Chapter Award for exemplary programming and outreach.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#1d4ed8",
+      type: "Milestone"
+    },
+    {
+      title: "5,000 Members Milestone",
+      year: "2023",
+      location: "Pan India",
+      desc: "ACM-W India surpassed 5,000 members across 28 states, marking a decade of sustained growth in the women-in-computing community.",
+      link: "https://india.acm.org/acm-w-india",
+      color: "#1d4ed8",
+      type: "Milestone"
+    }
+  ]
+};
+
+// ── SVG icon paths by type ─────────────────────────────────────────────
+var ICONS = {
+  "Symposium":    '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  "Award":        '<circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>',
+  "Women\'s Day": '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+  "Milestone":    '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>'
+};
+
+// ── Build one card — mirrors Europe post-grid flat skin markup exactly ─
+function buildCelebCard(ev) {
+  var icon = ICONS[ev.type] || ICONS["Milestone"];
+  return '<div class="item skin flat">'
+    + '<div class="layer-wrapper">'
+    + '<div class="layer-media">'
+    + '<a href="' + ev.link + '" target="_blank" class="js-no-link-icon">'
+    + '<div class="celeb-thumb" style="background:linear-gradient(135deg,' + ev.color + ' 0%,' + ev.color + 'bb 100%);">'
+    + '<span class="celeb-thumb-year">' + ev.year + '</span>'
+    + '<div class="celeb-thumb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + icon + '</svg></div>'
+    + '<span class="celeb-thumb-type">' + ev.type + '</span>'
+    + '</div>'
+    + '</a>'
+    + '</div>'
+    + '<div class="layer-content">'
+    + '<a target="_blank" class="element element_0 title_link" href="' + ev.link + '">' + ev.title + '</a>'
+    + '<a target="_blank" class="element element_1 read_more" href="' + ev.link + '">Read more.</a>'
+    + '</div>'
+    + '</div>'
+    + '</div>';
+}
+
+// ── Render all sections on DOM ready ──────────────────────────────────
+document.addEventListener('DOMContentLoaded', function () {
+  var sections = [
+    { key: 'symposium',  id: 'symposium-grid'  },
+    { key: 'awards',     id: 'awards-grid'     },
+    { key: 'womenday',   id: 'womenday-grid'   },
+    { key: 'milestones', id: 'milestones-grid' }
+  ];
+
+  sections.forEach(function (s) {
+    var el = document.getElementById(s.id);
+    if (!el) return;
+    var html = '';
+    (CELEB[s.key] || []).forEach(function (ev) { html += buildCelebCard(ev); });
+    el.innerHTML = html;
+  });
+
+  // Smooth-scroll for anchor links in subnav
+  document.querySelectorAll('.celeb-subnav a').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var href = this.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        var target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Toggle active
+        document.querySelectorAll('.celeb-subnav a').forEach(function (x) { x.classList.remove('active'); });
+        this.classList.add('active');
+      }
+    });
+  });
+});
+</script>
+
+<script type="text/javascript" src="https://acmweurope.acm.org/wp-content/themes/acm/js/navigation.js?ver=4.9.26"></script>
+</body>
+</html>
