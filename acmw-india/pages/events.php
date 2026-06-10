@@ -28,7 +28,7 @@ include '../header.php';
   <div class="row" style="background-color: white; padding-top: 10px;">
     <div class="columns small-12">
       <ul class="breadcrumbs">
-        <ul id="crumbs" class="breadcrumbs"><li><a href="../index.php">Home</a></li><li>Newsletter</li></ul>      </ul>
+        <ul id="crumbs" class="breadcrumbs"><li><a href="../index.php">Home</a></li><li>Events</li></ul>      </ul>
     </div>
   </div>
     <div class="article" id="maincontent">
@@ -40,7 +40,146 @@ include '../header.php';
                             <div class="post">
                 <div class="entrytext">
 
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- Flagship Events Overview Section (matching home page)      -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
         <section class="home-section">
+          <h2 class="section-heading" style="text-align:center;"><strong>ACM-W India Events</strong></h2>
+          <div class="mission-text">
+            <p>ACM-W India organises a diverse portfolio of flagship events throughout the year — hackathons, coding contests, and mentorship programmes — designed to support, celebrate, and advocate for women in computing across India.</p>
+          </div>
+        </section>
+
+        <section class="home-section">
+          <div class="section-tag">Flagship Events</div>
+          <h2 class="section-heading" style="text-align:center;"><strong>Our Signature Programmes</strong></h2>
+
+          <style>
+          .events-intro-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr;
+              gap: 30px;
+              margin-bottom: 40px;
+          }
+          @media (max-width: 768px) {
+              .events-intro-grid {
+                  grid-template-columns: 1fr;
+              }
+          }
+          .flagship-card {
+              background: #fff;
+              border: 1px solid #e0e0e0;
+              padding: 25px;
+              box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+              text-align: center;
+              transition: box-shadow .3s, transform .25s;
+              cursor: pointer;
+          }
+          .flagship-card:hover {
+              box-shadow: 0 6px 24px rgba(0,0,0,.12);
+              transform: translateY(-3px);
+          }
+          .flagship-card .flagship-icon {
+              width: 48px;
+              height: 48px;
+              border-radius: 50%;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              margin-bottom: 14px;
+          }
+          .flagship-card .flagship-icon svg {
+              width: 24px;
+              height: 24px;
+              stroke: #fff;
+              fill: none;
+              stroke-width: 2;
+          }
+          .flagship-card h3 {
+              font-size: 1.1rem;
+              color: #333;
+              margin-bottom: 10px;
+              font-weight: bold;
+          }
+          .flagship-card p {
+              font-size: 0.95rem;
+              line-height: 1.6;
+              color: #444;
+              text-align: left;
+              margin-bottom: 15px;
+          }
+          .flagship-card .flagship-stats {
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+              margin-top: 12px;
+              padding-top: 12px;
+              border-top: 1px solid #eaeaea;
+          }
+          .flagship-card .flagship-stats span {
+              font-size: 0.8rem;
+              color: #777;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: .03em;
+          }
+          .flagship-card .flagship-stats strong {
+              display: block;
+              font-size: 1.3rem;
+              color: #333;
+              margin-bottom: 2px;
+          }
+          </style>
+
+          <div class="events-intro-grid">
+            <!-- NariYukti -->
+            <div class="flagship-card" onclick="filterEvents('Hackathon', document.querySelector('[data-cat=Hackathon]'))">
+              <div class="flagship-icon" style="background: #7c3aed;">
+                <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <h3>NariYukti Hackathon</h3>
+              <p>India's premier all-women national hackathon empowering women to innovate and solve real-world problems through technology, AI, sustainability and social impact.</p>
+              <div class="flagship-stats">
+                <span><strong>4</strong>Editions</span>
+                <span><strong>800+</strong>Participants</span>
+              </div>
+            </div>
+
+            <!-- Lady Ada -->
+            <div class="flagship-card" onclick="filterEvents('Coding Contest', document.querySelector('[data-cat=\x22Coding Contest\x22]'))">
+              <div class="flagship-icon" style="background: #0369a1;">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <h3>Lady Ada Coding Contest</h3>
+              <p>Named in honour of Ada Lovelace, this annual competitive programming contest provides women a dedicated national platform to showcase algorithmic excellence.</p>
+              <div class="flagship-stats">
+                <span><strong>5</strong>Editions</span>
+                <span><strong>2000+</strong>Registrations</span>
+              </div>
+            </div>
+
+            <!-- Grad Cohort -->
+            <div class="flagship-card" onclick="filterEvents('Mentorship Program', document.querySelector('[data-cat=\x22Mentorship Program\x22]'))">
+              <div class="flagship-icon" style="background: #065f46;">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h3>Grad Cohort Mentorship</h3>
+              <p>An immersive mentorship programme connecting women graduate researchers with senior faculty, industry leaders and ACM Fellows for career development.</p>
+              <div class="flagship-stats">
+                <span><strong>5</strong>Editions</span>
+                <span><strong>50+</strong>Mentors</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- Events Grid Section                                        -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="home-section">
+          <div class="section-tag">Browse Events</div>
+          <h2 class="section-heading" style="text-align:center;"><strong>All Events</strong></h2>
+
           <style>
             /* ── Category filter tabs ───────────────────────────────────── */
             .india-filter-bar {
@@ -48,15 +187,16 @@ include '../header.php';
               flex-wrap: wrap;
               gap: 10px;
               margin: 0 0 32px 0;
-              padding: 20px 0 0 0;
+              padding: 10px 0 0 0;
+              justify-content: center;
             }
             .india-filter-bar .filter-btn {
               display: inline-flex;
               align-items: center;
               gap: 7px;
-              padding: 8px 18px;
-              border: 2px solid #bbb;
-              border-radius: 4px;
+              padding: 10px 20px;
+              border: 2px solid #d0d0d0;
+              border-radius: 6px;
               background: #fff;
               color: #444;
               font-family: 'Roboto Condensed', sans-serif;
@@ -65,18 +205,20 @@ include '../header.php';
               letter-spacing: .04em;
               text-transform: uppercase;
               cursor: pointer;
-              transition: background .2s, color .2s, border-color .2s;
+              transition: all .25s ease;
               text-decoration: none;
               text-shadow: none !important;
             }
             .india-filter-bar .filter-btn:hover {
-              background: #eee;
+              background: #f5f5f5;
+              border-color: #aaa;
+              transform: translateY(-1px);
             }
             
-            .india-filter-bar .filter-btn[data-cat="all"].active { background: #83cee2 !important; border-color: #83cee2 !important; color: #fff !important; }
-            .india-filter-bar .filter-btn[data-cat="Hackathon"].active { background: #7c3aed !important; border-color: #7c3aed !important; color: #fff !important; }
-            .india-filter-bar .filter-btn[data-cat="Coding Contest"].active { background: #0369a1 !important; border-color: #0369a1 !important; color: #fff !important; }
-            .india-filter-bar .filter-btn[data-cat="Mentorship Program"].active { background: #065f46 !important; border-color: #065f46 !important; color: #fff !important; }
+            .india-filter-bar .filter-btn[data-cat="all"].active { background: #83cee2 !important; border-color: #83cee2 !important; color: #fff !important; box-shadow: 0 3px 12px rgba(131,206,226,.35); }
+            .india-filter-bar .filter-btn[data-cat="Hackathon"].active { background: #7c3aed !important; border-color: #7c3aed !important; color: #fff !important; box-shadow: 0 3px 12px rgba(124,58,237,.35); }
+            .india-filter-bar .filter-btn[data-cat="Coding Contest"].active { background: #0369a1 !important; border-color: #0369a1 !important; color: #fff !important; box-shadow: 0 3px 12px rgba(3,105,161,.35); }
+            .india-filter-bar .filter-btn[data-cat="Mentorship Program"].active { background: #065f46 !important; border-color: #065f46 !important; color: #fff !important; box-shadow: 0 3px 12px rgba(6,95,70,.35); }
 
             .india-filter-bar .filter-btn svg {
               width: 16px;
@@ -89,22 +231,28 @@ include '../header.php';
             /* ── Event cards grid ───────────────────────────────────────── */
             .india-events-grid {
               display: grid;
-              grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-              gap: 24px;
+              grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+              gap: 30px;
               margin-bottom: 32px;
+            }
+            @media (max-width: 768px) {
+              .india-events-grid {
+                grid-template-columns: 1fr;
+              }
             }
             .india-ev-card {
               background: #fff;
-              border: 1px solid #ddd;
+              border: 1px solid #e0e0e0;
               border-radius: 4px;
               overflow: hidden;
-              transition: box-shadow .25s, transform .2s;
+              transition: box-shadow .3s ease, transform .25s ease;
               display: flex;
               flex-direction: column;
+              box-shadow: 0 1px 3px rgba(0,0,0,0.05);
             }
             .india-ev-card:hover {
-              box-shadow: 0 6px 24px rgba(0,0,0,.14);
-              transform: translateY(-3px);
+              box-shadow: 0 8px 30px rgba(0,0,0,.12);
+              transform: translateY(-4px);
             }
             .india-ev-card a {
               text-decoration: none;
@@ -115,7 +263,7 @@ include '../header.php';
             }
             .india-ev-card-banner {
               width: 100%;
-              height: 160px;
+              height: 170px;
               position: relative;
               overflow: hidden;
             }
@@ -123,6 +271,10 @@ include '../header.php';
               width: 100%;
               height: 100%;
               object-fit: cover;
+              transition: transform .4s ease;
+            }
+            .india-ev-card:hover .india-ev-card-banner img {
+              transform: scale(1.05);
             }
             .india-ev-card-banner-label {
               position: absolute;
@@ -134,74 +286,80 @@ include '../header.php';
               font-weight: 700;
               letter-spacing: .1em;
               text-transform: uppercase;
-              padding: 4px 10px;
-              border-radius: 3px;
+              padding: 5px 12px;
+              border-radius: 4px;
+              backdrop-filter: blur(4px);
             }
             .india-ev-card-body {
-              padding: 18px 20px 20px;
+              padding: 20px 25px 22px;
               flex: 1;
               display: flex;
               flex-direction: column;
             }
             .india-ev-card-title {
               font-family: 'Roboto Condensed', sans-serif;
-              font-size: 16px;
+              font-size: 1.1rem;
               font-weight: 700;
-              color: #222;
-              margin: 0 0 8px 0;
-              line-height: 1.35;
+              color: #333;
+              margin: 0 0 10px 0;
+              line-height: 1.4;
             }
             .india-ev-card-meta {
-              font-size: 12px;
+              font-size: 0.8rem;
               color: #777;
-              margin-bottom: 10px;
+              margin-bottom: 12px;
             }
             .india-ev-card-meta span {
               display: inline-flex;
               align-items: center;
-              gap: 4px;
-              margin-right: 12px;
+              gap: 5px;
+              margin-right: 14px;
             }
             .india-ev-card-meta svg {
-              width: 12px;
-              height: 12px;
+              width: 13px;
+              height: 13px;
               stroke: currentColor;
               fill: none;
             }
             .india-ev-card-desc {
-              font-size: 13px;
-              color: #555;
-              line-height: 1.65;
+              font-size: 0.95rem;
+              color: #444;
+              line-height: 1.6;
               flex: 1;
             }
             .india-ev-card-footer {
               display: flex;
               align-items: center;
               justify-content: space-between;
-              margin-top: 14px;
-              padding-top: 12px;
-              border-top: 1px solid #eee;
+              margin-top: 16px;
+              padding-top: 14px;
+              border-top: 1px solid #eaeaea;
             }
             .india-ev-card-cat {
               font-size: 11px;
               font-weight: 700;
-              letter-spacing: .1em;
+              letter-spacing: .08em;
               text-transform: uppercase;
-              padding: 3px 9px;
-              border-radius: 3px;
+              padding: 4px 10px;
+              border-radius: 4px;
               color: #fff;
             }
             .india-ev-card-link {
-              font-size: 12px;
-              font-weight: 600;
-              color: #83cee2;
+              font-size: 0.85rem;
+              font-weight: bold;
+              color: #043b87;
               display: inline-flex;
               align-items: center;
               gap: 4px;
+              text-decoration: none;
+              transition: color .2s;
+            }
+            .india-ev-card-link:hover {
+              text-decoration: underline;
             }
             .india-ev-card-link svg {
-              width: 12px;
-              height: 12px;
+              width: 13px;
+              height: 13px;
               stroke: currentColor;
               fill: none;
             }
@@ -237,8 +395,7 @@ include '../header.php';
             .india-filter-bar .filter-btn[data-cat="Mentorship Program"].active .india-count-badge { color: #065f46; }
           </style>
 
-          <h1 style="text-align:left;">ACM-W India Events</h1>
-          <p>ACM-W India runs a diverse set of flagship events throughout the year — hackathons, coding contests, mentorship programmes and more. Use the filters below to explore by category.</p>
+          <p style="text-align:center; color:#555; margin-bottom: 5px;">Use the filters below to explore events by category.</p>
 
           <!-- ── Category Filter Bar ────────────────────── -->
           <div class="india-filter-bar" id="filterBar">
@@ -321,7 +478,7 @@ include '../header.php';
                 + '<p class="india-ev-card-desc">' + ev.desc + '</p>'
                 + '<div class="india-ev-card-footer">'
                 + '<span class="india-ev-card-cat" style="background:' + ev.color + ';">' + label + '</span>'
-                + '<span class="india-ev-card-link">Visit <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>'
+                + '<span class="india-ev-card-link">Learn more &raquo;</span>'
                 + '</div>'
                 + '</div>'
                 + '</a>'
