@@ -9,7 +9,7 @@ include '../header.php';
 <div class="banner-container">
   <div>
     <div>
-        <div class="acm-banner-container" style="background: url('https://acmweurope.acm.org/wp-content/uploads/2020/11/bannerMap-3-1024x195.png') no-repeat center 0 / 130% #000; background-size: cover;">
+        <div class="acm-banner-container" style="background: url('https://india.acm.org/binaries/bannerlarge/content/gallery/acm/banners/acm_india_banner_sym_2019.jpg') no-repeat center 0 / 130% #000; background-size: cover;">
         <div class="gradient-wrapper"></div>
         <div class="overlay"></div>
         <div class="row">
