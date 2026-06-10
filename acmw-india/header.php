@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="shortcut icon" href="/favicon.ico?v=2">
+    <link rel="shortcut icon" href="<?php echo $base_path; ?>assets/acmw-india-logo.png">
     <meta class="foundation-data-attribute-namespace">
     <meta class="foundation-mq-xxlarge">
     <meta class="foundation-mq-xlarge-only">
@@ -164,10 +164,10 @@ img.emoji {
 <link rel="shortlink" href="https://acmweurope.acm.org/?p=1311">
 <link rel="alternate" type="application/json+oembed" href="https://acmweurope.acm.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Facmweurope.acm.org%2Fnewsletter%2F">
 <link rel="alternate" type="text/xml+oembed" href="https://acmweurope.acm.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Facmweurope.acm.org%2Fnewsletter%2F&amp;format=xml">
-<meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://acmweurope.acm.org"><link rel="https://theeventscalendar.com/" href="https://acmweurope.acm.org/wp-json/tribe/events/v1/"><link rel="icon" href="https://acmweurope.acm.org/wp-content/uploads/2019/09/cropped-europe-32x32.png" sizes="32x32">
-<link rel="icon" href="https://acmweurope.acm.org/wp-content/uploads/2019/09/cropped-europe-192x192.png" sizes="192x192">
-<link rel="apple-touch-icon-precomposed" href="https://acmweurope.acm.org/wp-content/uploads/2019/09/cropped-europe-180x180.png">
-<meta name="msapplication-TileImage" content="https://acmweurope.acm.org/wp-content/uploads/2019/09/cropped-europe-270x270.png">
+<meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://acmweurope.acm.org"><link rel="https://theeventscalendar.com/" href="https://acmweurope.acm.org/wp-json/tribe/events/v1/"><link rel="icon" href="<?php echo $base_path; ?>assets/acmw-india-logo.png" sizes="32x32">
+<link rel="icon" href="<?php echo $base_path; ?>assets/acmw-india-logo.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="<?php echo $base_path; ?>assets/acmw-india-logo.png">
+<meta name="msapplication-TileImage" content="<?php echo $base_path; ?>assets/acmw-india-logo.png">
 		<style type="text/css" id="wp-custom-css">
 			tribe-common-c-btn-icon tribe-common-c-btn-icon--caret-right tribe-events-c-top-bar__nav-link tribe-events-c-top-bar__nav-link--next {
 	background-color: #83cee2;
