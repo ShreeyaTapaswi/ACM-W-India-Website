@@ -28,7 +28,15 @@ include '../header.php';
   <div class="row" style="background-color: white; padding-top: 10px;">
     <div class="columns small-12">
       <ul class="breadcrumbs">
-        <ul id="crumbs" class="breadcrumbs"><li><a href="../index.php">Home</a></li><li>Chapters</li></ul>      </ul>
+        <ul id="crumbs" class="breadcrumbs">
+          <?php if ($active_page === 'index'): ?>
+            <li>Home</li>
+          <?php else: ?>
+            <li><a href="<?php echo $base_path; ?>index.php">Home</a></li>
+            <li><?php echo ucfirst($active_page); ?></li>
+          <?php endif; ?>
+        </ul>
+      </ul>
     </div>
   </div>
     <div class="article" id="maincontent">
