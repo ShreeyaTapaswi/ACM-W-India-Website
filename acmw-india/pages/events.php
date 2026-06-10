@@ -97,9 +97,25 @@ include '../header.php';
           }
           .flagship-card h3 {
               font-size: 1.1rem;
-              color: #333;
               margin-bottom: 10px;
               font-weight: bold;
+          }
+          .flagship-card h3 a {
+              color: #333;
+              text-decoration: none;
+              transition: color 0.25s ease;
+          }
+          .flagship-card h3 a.nariyukti-link:hover {
+              color: #7c3aed;
+              text-decoration: underline;
+          }
+          .flagship-card h3 a.ladyada-link:hover {
+              color: #0369a1;
+              text-decoration: underline;
+          }
+          .flagship-card h3 a.gradcohort-link:hover {
+              color: #065f46;
+              text-decoration: underline;
           }
           .flagship-card p {
               font-size: 0.95rem;
@@ -137,8 +153,10 @@ include '../header.php';
               <div class="flagship-icon" style="background: #7c3aed;">
                 <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               </div>
-              <h3>NariYukti Hackathon</h3>
-              <p>India's premier all-women national hackathon empowering women to innovate and solve real-world problems through technology, AI, sustainability and social impact.</p>
+              <h3><a href="https://event.india.acm.org/" target="_blank" class="nariyukti-link" onclick="event.stopPropagation();">NariYukti Hackathon</a></h3>
+              <p>India's premier all-women national hackathon empowering women to innovate and solve real-world problems. Teams collaborate over a 36-hour challenge to design solutions for AI, sustainability, healthcare, and social impact, mentored by industry experts and competing for startup incubation opportunities.</p>
+              <p style="margin-bottom: 5px;"><strong>Starting Year:</strong> 2023 (Precursor hackathon series in 2022)</p>
+              <p style="margin-bottom: 15px;"><strong>Impacted Students:</strong> Over 800+ participants from 120+ colleges across India, fostering technical leadership and entrepreneurial skills among young women developers.</p>
               <div class="flagship-stats">
                 <span><strong>4</strong>Editions</span>
                 <span><strong>800+</strong>Participants</span>
@@ -150,8 +168,10 @@ include '../header.php';
               <div class="flagship-icon" style="background: #0369a1;">
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
-              <h3>Lady Ada Coding Contest</h3>
-              <p>Named in honour of Ada Lovelace, this annual competitive programming contest provides women a dedicated national platform to showcase algorithmic excellence.</p>
+              <h3><a href="https://event.india.acm.org/ladyada/home/" target="_blank" class="ladyada-link" onclick="event.stopPropagation();">Lady Ada Coding Contest</a></h3>
+              <p>Named in honour of Ada Lovelace, this annual competitive programming contest provides female students across India a dedicated platform to showcase algorithmic excellence. Finalists solve advanced challenges in data structures and graph theory, winning cash prizes and fast-tracked interview opportunities.</p>
+              <p style="margin-bottom: 5px;"><strong>Starting Year:</strong> 2013 (Celebrating over a decade of contests)</p>
+              <p style="margin-bottom: 15px;"><strong>Impacted Students:</strong> Over 2,000+ registrations annually from technical universities nationwide, helping students transition to top-tier software engineering roles.</p>
               <div class="flagship-stats">
                 <span><strong>5</strong>Editions</span>
                 <span><strong>2000+</strong>Registrations</span>
@@ -163,8 +183,10 @@ include '../header.php';
               <div class="flagship-icon" style="background: #065f46;">
                 <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </div>
-              <h3>Grad Cohort Mentorship</h3>
-              <p>An immersive mentorship programme connecting women graduate researchers with senior faculty, industry leaders and ACM Fellows for career development.</p>
+              <h3><a href="https://event.india.acm.org/gradcohort/" target="_blank" class="gradcohort-link" onclick="event.stopPropagation();">Grad Cohort Mentorship</a></h3>
+              <p>An immersive mentorship programme connecting women graduate researchers with senior faculty, industry leaders, and ACM Fellows. The cohort covers PhD lifecycle, scientific publishing, advisor navigation, poster presentations, and work-life balance workshops.</p>
+              <p style="margin-bottom: 5px;"><strong>Starting Year:</strong> 2021 (A regional adaptation of the CRA-WP program)</p>
+              <p style="margin-bottom: 15px;"><strong>Impacted Students:</strong> Over 500+ graduate and doctoral scholars directly mentored by 50+ academic experts and ACM Fellows from IISc, IITs, and global research labs.</p>
               <div class="flagship-stats">
                 <span><strong>5</strong>Editions</span>
                 <span><strong>50+</strong>Mentors</span>
