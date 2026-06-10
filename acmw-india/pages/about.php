@@ -54,8 +54,7 @@ include '../header.php';
               <!-- Photo & Social Column -->
               <div style="flex: 0 0 260px; display: flex; flex-direction: column; align-items: center;">
                 <div style="width: 260px; height: 300px; background-color: #eaeaea; border-radius: 8px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 15px; box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);">
-                  <!-- Replace the <i> tag with an <img> tag when you have the photo -->
-                  <i class="fa fa-user" style="font-size: 100px; color: #bbb;"></i>
+                  <img src="<?php echo $base_path; ?>assets/geetanjalimam.png" alt="Dr. Geetanjali Kale" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="wpsm_team_2_social_div" style="text-align: center;">
                   <a href="#" target="_blank" title="LinkedIn" style="margin-right: 15px; text-decoration: none;"><i class="fa fa-linkedin-square" style="font-size: 28px; color: #0077b5;"></i></a>
@@ -120,6 +119,11 @@ include '../header.php';
               font-size: 65px;
               color: #ddd;
           }
+          .committee-photo-placeholder img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+          }
           .wpsm_team_2_member_wrapper_inner h3 {
               margin-top: 0;
               margin-bottom: 5px;
@@ -157,7 +161,7 @@ include '../header.php';
 
           <div class="india-committee-grid">
             <div class="wpsm_team_2_member_wrapper_inner">
-                <div class="committee-photo-placeholder"><i class="fa fa-user"></i></div>
+                <div class="committee-photo-placeholder"><img src="<?php echo $base_path; ?>assets/geetanjalimam.png" alt="Dr. Geetanjali Kale"></div>
                 <h3>Dr. Geetanjali Kale</h3>
                 <span class="wpsm_team_2_b_desig">Chair</span>
                 <span class="wpsm_team_2_b_uni">PICT, Pune</span>
@@ -181,7 +185,7 @@ include '../header.php';
             </div>
             
             <div class="wpsm_team_2_member_wrapper_inner">
-                <div class="committee-photo-placeholder"><i class="fa fa-user"></i></div>
+                <div class="committee-photo-placeholder"><img src="<?php echo $base_path; ?>assets/rutvishah.png" alt="Rutvi Shah"></div>
                 <h3>Rutvi Shah</h3>
                 <span class="wpsm_team_2_b_desig">Past Chair</span>
                 <span class="wpsm_team_2_b_uni">Ganpat University</span>

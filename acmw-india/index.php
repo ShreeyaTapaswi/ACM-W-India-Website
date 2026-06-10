@@ -157,9 +157,8 @@ include 'header.php';
             <div class="clean-post-card">
               <h2>End of Year’s Message from ACM-W India Chair<br>– Dr. Geetanjali Kale</h2>
               
-              <div class="img-alignright">
-                 <i class="fa fa-image" style="font-size: 30px; margin-bottom: 10px;"></i>
-                 <span style="font-size: 0.8rem;">Image Placeholder</span>
+              <div class="img-alignright" style="border: none; background: none;">
+                 <img src="<?php echo $base_path; ?>assets/geetanjalimam.png" alt="Dr. Geetanjali Kale" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
               </div>
               
               <p>Welcome to the December 2025 edition of the ACM-W India Newsletter. As the year ends, let us take a moment to reflect on the journey we’ve shared this year!</p>
