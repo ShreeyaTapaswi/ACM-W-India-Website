@@ -57,8 +57,8 @@ include '../header.php';
                   <img src="<?php echo $base_path; ?>assets/geetanjalimam.png" alt="Dr. Geetanjali Kale" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="wpsm_team_2_social_div" style="text-align: center;">
-                  <a href="#" target="_blank" title="LinkedIn" style="margin-right: 15px; text-decoration: none;"><i class="fa fa-linkedin-square" style="font-size: 28px; color: #0077b5;"></i></a>
-                  <a href="mailto:acmwindia@acm.org" target="_blank" title="Email" style="text-decoration: none;"><i class="fa fa-envelope" style="font-size: 28px; color: #d44638;"></i></a>
+                  <a href="https://www.linkedin.com/in/dr-geetanjali-kale-17148922" target="_blank" title="LinkedIn" style="margin-right: 15px; text-decoration: none;"><i class="fa fa-linkedin-square" style="font-size: 28px; color: #0077b5;"></i></a>
+                  <a href="mailto:gvkale@pict.edu" target="_blank" title="Email" style="text-decoration: none;"><i class="fa fa-envelope" style="font-size: 28px; color: #d44638;"></i></a>
                 </div>
               </div>
               
@@ -165,7 +165,6 @@ include '../header.php';
                 <h3>Dr. Geetanjali Kale</h3>
                 <span class="wpsm_team_2_b_desig">Chair</span>
                 <span class="wpsm_team_2_b_uni">PICT, Pune</span>
-                <div class="wpsm_team_2_social_div"><a href="#" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></div>
             </div>
             
             <div class="wpsm_team_2_member_wrapper_inner">
@@ -173,7 +172,6 @@ include '../header.php';
                 <h3>Alpana Dubey</h3>
                 <span class="wpsm_team_2_b_desig">Vice-Chair</span>
                 <span class="wpsm_team_2_b_uni">Accenture, Bangalore</span>
-                <div class="wpsm_team_2_social_div"><a href="#" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></div>
             </div>
             
             <div class="wpsm_team_2_member_wrapper_inner">
@@ -181,7 +179,6 @@ include '../header.php';
                 <h3>Renuka Sindhghatta</h3>
                 <span class="wpsm_team_2_b_desig">Secretary / Treasurer</span>
                 <span class="wpsm_team_2_b_uni">IBM, Bangalore</span>
-                <div class="wpsm_team_2_social_div"><a href="#" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></div>
             </div>
             
             <div class="wpsm_team_2_member_wrapper_inner">
@@ -189,7 +186,6 @@ include '../header.php';
                 <h3>Rutvi Shah</h3>
                 <span class="wpsm_team_2_b_desig">Past Chair</span>
                 <span class="wpsm_team_2_b_uni">Ganpat University</span>
-                <div class="wpsm_team_2_social_div"><a href="#" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></div>
             </div>
             
             <div class="wpsm_team_2_member_wrapper_inner">
@@ -197,7 +193,6 @@ include '../header.php';
                 <h3>Jayashree Mohan</h3>
                 <span class="wpsm_team_2_b_desig">Member-at-large</span>
                 <span class="wpsm_team_2_b_uni">Microsoft Research, Bangalore</span>
-                <div class="wpsm_team_2_social_div"><a href="#" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></div>
             </div>
             
             <div class="wpsm_team_2_member_wrapper_inner">
@@ -205,7 +200,6 @@ include '../header.php';
                 <h3>Mini Ulanat</h3>
                 <span class="wpsm_team_2_b_desig">Member-at-large</span>
                 <span class="wpsm_team_2_b_uni">CUSAT, Cochin</span>
-                <div class="wpsm_team_2_social_div"><a href="#" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></div>
             </div>
             
             <div class="wpsm_team_2_member_wrapper_inner">
@@ -213,7 +207,6 @@ include '../header.php';
                 <h3>Sriparna Saha</h3>
                 <span class="wpsm_team_2_b_desig">Member-at-large</span>
                 <span class="wpsm_team_2_b_uni">IIT Patna</span>
-                <div class="wpsm_team_2_social_div"><a href="#" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></div>
             </div>
             
             <div class="wpsm_team_2_member_wrapper_inner">
@@ -221,7 +214,6 @@ include '../header.php';
                 <h3>Manik Gupta</h3>
                 <span class="wpsm_team_2_b_desig">Member-at-large</span>
                 <span class="wpsm_team_2_b_uni">BITS Pilani Hyderabad</span>
-                <div class="wpsm_team_2_social_div"><a href="#" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></div>
             </div>
             
             <div class="wpsm_team_2_member_wrapper_inner">
@@ -229,7 +221,6 @@ include '../header.php';
                 <h3>Nita Thakare</h3>
                 <span class="wpsm_team_2_b_desig">Member-at-large</span>
                 <span class="wpsm_team_2_b_uni">Priyadarshini College, Nagpur</span>
-                <div class="wpsm_team_2_social_div"><a href="#" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></div>
             </div>
             
             <div class="wpsm_team_2_member_wrapper_inner">
@@ -237,7 +228,6 @@ include '../header.php';
                 <h3>Sachi Choudhary</h3>
                 <span class="wpsm_team_2_b_desig">Member-at-large</span>
                 <span class="wpsm_team_2_b_uni">UPES Dehradun</span>
-                <div class="wpsm_team_2_social_div"><a href="#" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></div>
             </div>
             
             <div class="wpsm_team_2_member_wrapper_inner">
@@ -245,7 +235,6 @@ include '../header.php';
                 <h3>Sonia Garcha</h3>
                 <span class="wpsm_team_2_b_desig">Member-at-large</span>
                 <span class="wpsm_team_2_b_uni">CSpathshala, Pune</span>
-                <div class="wpsm_team_2_social_div"><a href="#" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></div>
             </div>
           </div>
         </div>

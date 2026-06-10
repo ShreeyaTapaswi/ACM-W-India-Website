@@ -165,9 +165,8 @@ include 'header.php';
 
               <p>In 2025, the ACM-W India chapters network welcomed several new chapters across the country. A warm welcome to all new chapters, and a huge thank-you to all the chapter officers who have taken the initiative to establish them! Their efforts help create local communities in which women in computing can thrive, collaborate, and innovate.</p>
               
-              <div class="img-aligncenter">
-                 <i class="fa fa-image" style="font-size: 30px; margin-bottom: 10px;"></i>
-                 <span style="font-size: 0.8rem;">Image Placeholder</span>
+              <div class="img-aligncenter" style="border: none; background: none;">
+                 <img src="<?php echo $base_path; ?>assets/GradCohort25.jpg" alt="Grad Cohort 25" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
               </div>
               
               <p>2025 was also a year of fantastic events that inspired women in computing from all around the country. Our flagship events, <strong>Lady Ada</strong>, <strong>Nariyukti</strong>, and <strong>Grad Cohort</strong>, brought together hundreds of attendees to learn from one another, network, and celebrate the achievements of women in computing.</p>
@@ -185,9 +184,8 @@ include 'header.php';
             <div class="clean-post-card">
               <h2>🌟 Celebrating Young Women Achievers in Computing | ACM-W India 🌟</h2>
               
-              <div class="img-aligncenter">
-                 <i class="fa fa-image" style="font-size: 30px; margin-bottom: 10px;"></i>
-                 <span style="font-size: 0.8rem;">Image Placeholder</span>
+              <div class="img-aligncenter" style="border: none; background: none;">
+                 <img src="<?php echo $base_path; ?>assets/olympiad.png" alt="Informatics Olympiad Winners" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
               </div>
 
               <p>ACM-W India proudly celebrates the remarkable achievements of young women representing India at prestigious international informatics olympiads in 2026. Their dedication, excellence, and perseverance continue to inspire the next generation of women in computing.</p>
