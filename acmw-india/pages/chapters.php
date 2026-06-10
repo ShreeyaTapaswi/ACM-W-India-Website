@@ -41,19 +41,19 @@ include '../header.php';
                 <div class="entrytext">
 
         <section class="home-section">
-          <div class="section-tag">Chapters Map</div>
+          <!-- <div class="section-tag">Chapters Map</div> -->
           <h1 class="section-heading">ACM-W India Chapters</h1>
           <p>ACM-W India is proud to have student chapters across many cities and states. Click or tap the pins on the map to reveal chapter details, then zoom and pan to explore chapters throughout India.</p>
 
-          <div class="chapters-summary">
+          <!-- <div class="chapters-summary">
             <div class="chapter-stat-card"><span class="csn">120+</span><span class="csl">Active Chapters Nationwide</span></div>
             <div class="chapter-stat-card"><span class="csn">28</span><span class="csl">States Represented</span></div>
             <div class="chapter-stat-card"><span class="csn">5000+</span><span class="csl">Chapter Members</span></div>
-          </div>
+          </div> -->
 
           <div class="map-legend">
-            <span><img src="<?php echo $base_path; ?>assets/acmw-india-logo.png" alt="ACM-W Logo" style="width:18px; height:18px; vertical-align:middle; margin-right:4px; filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.2));"> ACM-W India Chapter</span>
-            <span style="margin-left:24px;"><span class="dot" style="background:rgba(255, 127, 32, 0.95); border: 2px solid #ffffff; width:14px; height:14px; border-radius:50%; display:inline-block; vertical-align:middle; margin-right:4px;"></span> Cluster (Zoom to expand)</span>
+            <span><img src="<?php echo $base_path; ?>assets/acm.png" alt="ACM-W Logo" style="width:18px; height:18px; vertical-align:middle; margin-right:4px; filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.2));"> ACM-W India Chapter</span>
+            <!-- <span style="margin-left:24px;"><span class="dot" style="background:rgba(255, 127, 32, 0.95); border: 2px solid #ffffff; width:14px; height:14px; border-radius:50%; display:inline-block; vertical-align:middle; margin-right:4px;"></span> Cluster (Zoom to expand)</span> -->
           </div>
 
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
@@ -358,7 +358,7 @@ include '../header.php';
         </section>
 
         <section class="home-section">
-          <div class="section-tag">Student Chapters</div>
+          <!-- <div class="section-tag">Student Chapters</div> -->
           <h2 class="section-heading">Student Chapters</h2>
           <p style="font-size:.9rem;color:var(--text-muted);margin-bottom:18px;">ACM-W India student chapters are formed at colleges and universities across India and are run by students under faculty supervision.</p>
           <div style="overflow-x: auto;">
@@ -375,7 +375,7 @@ include '../header.php';
         </section>
 
         <section class="home-section">
-          <div class="section-tag">Professional Chapters</div>
+          <!-- <div class="section-tag">Professional Chapters</div> -->
           <h2 class="section-heading">Professional Chapters</h2>
           <p>ACM-W also supports professional-level chapters for working women in computing. As of 2026, ACM-W India is actively encouraging the formation of professional chapters in major tech hubs.</p>
           <div style="background:#f0f6ff;border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-top:16px;">
@@ -385,7 +385,7 @@ include '../header.php';
           </div>
         </section>
 
-        <section class="home-section">
+        <!-- <section class="home-section">
           <div class="section-tag">How to Apply</div>
           <h2 class="section-heading">How to Start an ACM-W Chapter</h2>
           <p style="font-size:.9rem;color:var(--text-muted);margin-bottom:22px;">Starting an ACM-W chapter at your institution is a rewarding way to build a local community. Follow these steps:</p>
@@ -439,13 +439,13 @@ include '../header.php';
               <li><a href="mailto:acmwindia@acm.org">Contact ACM-W India for guidance</a></li>
             </ul>
           </div>
-        </section>
+        </section> -->
 
       <section id="prof-chapters" style="margin-top:40px;">
-                <h2 class="section-heading">Professional Chapters in India</h2>
+                <!-- <h2 class="section-heading">Professional Chapters in India</h2>
                 <div style="background:#f9f9f9;border:1px dashed #ccc;padding:20px;">
                     <p>Coming soon. Details about existing professional chapters and how to start a new one will be listed here.</p>
-                </div>
+                </div> -->
             </section></div>
               </div>
                           </div>
